@@ -22,9 +22,9 @@ version: 2.1
 # ...
 
 orbs:
-  # Declare a dependency on the welcome-orb
+  # Declare a dependency on the Thundra Orb
   # Make sure to replace <VERSION> with the latest available
-  thundra: thundra-io/thundra-foresight@<VERSION>
+  thundra: thundra-io/thundra-foresight@1.0.0
 
 # ...
 
@@ -55,9 +55,9 @@ version: 2.1
 # ...
 
 orbs:
-  # Declare a dependency on the welcome-orb
+  # Declare a dependency on the Thundra Orb
   # Make sure to replace <VERSION> with the latest available
-  thundra: thundra-io/thundra-foresight@<VERSION>
+  thundra: thundra-io/thundra-foresight@1.0.0
 
 # ...
 
