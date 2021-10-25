@@ -5,4 +5,4 @@ description: >
 
 display:
   home_url: "https://thundra.io"
-  source_url: "https://github.com/thundra-io/thundra-circleci-plugin"
+  source_url: "https://github.com/thundra-io/thundra-circleci-orb"
