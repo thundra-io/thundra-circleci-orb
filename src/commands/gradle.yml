@@ -2,11 +2,11 @@ description: >
   Gradle Instrumentation
 parameters:
   apikey:
-    type: string
+    type: env_var_name
     description: "Thundra's API Key"
     default: ""
   project_id:
-    type: string
+    type: env_var_name
     description: "Thundra's Test Project ID"
     default: ""
   plugin_version:
