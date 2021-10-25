@@ -1,0 +1,23 @@
+description: >
+  Use Gradle command to integrate Thundra Foresight to your project and instrument your Gradle build.
+usage:
+  version: 2.1
+  orbs:
+    thundra: thundra-io/thundra-foresight@1.0.0
+  jobs:
+    gradle:
+      docker:
+        - image: cimg/openjdk:11.0
+      steps:
+        - checkout
+        # Use `thundra/gradle` command
+        - thundra/gradle:
+            apikey: <THUNDRA_APIKEY>
+            project_id: <THUNDRA_PROJECT_ID>
+        - run:
+            # Make sure to use the $THUNDRA_GRADLE_INIT_SCRIPT_PATH
+            command: ./gradlew build --init-script $THUNDRA_GRADLE_INIT_SCRIPT_PATH
+  workflows:
+    example:
+      jobs:
+        - gradle
