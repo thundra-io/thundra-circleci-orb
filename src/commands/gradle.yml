@@ -2,13 +2,13 @@ description: >
   Gradle Instrumentation
 parameters:
   apikey:
-    type: string
+    type: env_var_name
     description: "Thundra's API Key"
-    default: ""
+    default: THUNDRA_APIKEY
   project_id:
-    type: string
+    type: env_var_name
     description: "Thundra's Test Project ID"
-    default: ""
+    default: THUNDRA_AGENT_TEST_PROJECT_ID
   plugin_version:
     type: string
     description: "Use a specific version of the Gradle test plugin"
@@ -21,16 +21,15 @@ steps:
   - run:
       name: Export Thundra Environment Variables
       command: |
-        echo "export THUNDRA_APIKEY=<<parameters.apikey>>" >> $BASH_ENV
-        echo "export THUNDRA_AGENT_TEST_PROJECT_ID=<<parameters.project_id>>" >> $BASH_ENV
+        echo "export THUNDRA_APIKEY=$<<parameters.apikey>>" >> $BASH_ENV
+        echo "export THUNDRA_AGENT_TEST_PROJECT_ID=$<<parameters.project_id>>" >> $BASH_ENV
         echo "export THUNDRA_AGENT_VERSION=<<parameters.agent_version>>" >> $BASH_ENV
         echo "export THUNDRA_GRADLE_TEST_PLUGIN_VERSION=<<parameters.plugin_version>>" >> $BASH_ENV
-        echo "export THUNDRA_GRADLE_INIT_SCRIPT_PATH=/tmp/thundra.gradle" >> $BASH_ENV
   - run:
       shell: /usr/bin/python3
       environment:
-        THUNDRA_APIKEY: <<parameters.apikey>>
-        THUNDRA_AGENT_TEST_PROJECT_ID: <<parameters.project_id>>
+        THUNDRA_APIKEY_ENV_NAME: <<parameters.apikey>>
+        THUNDRA_AGENT_TEST_PROJECT_ID_ENV_NAME: <<parameters.project_id>>
         THUNDRA_AGENT_VERSION: <<parameters.agent_version>>
         THUNDRA_GRADLE_TEST_PLUGIN_VERSION: <<parameters.plugin_version>>
       name: Run Thundra Gradle Instrumentation

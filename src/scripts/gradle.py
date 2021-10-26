@@ -86,15 +86,23 @@ allprojects {{
 }}
 '''
         out.write(init_file)
+        bash_env_file = os.environ.get("BASH_ENV")
+        with open(bash_env_file, "a") as bash_env:
+            bash_env.write(
+                f'export THUNDRA_GRADLE_INIT_SCRIPT_PATH={init_file_path}'
+            )
         print(f'> Successfully generated init file at {init_file_path}')
 
 
-if not os.environ.get('THUNDRA_APIKEY'):
+api_key_env_name = os.environ.get("THUNDRA_APIKEY_ENV_NAME")
+if not os.environ.get(api_key_env_name):
     print('> Thundra API Key is not present. Exiting early...')
     print('> Instrumentation failed.')
     exit(0)
 
-if not os.environ.get('THUNDRA_AGENT_TEST_PROJECT_ID'):
+
+project_id_env_name = os.environ.get("THUNDRA_AGENT_TEST_PROJECT_ID_ENV_NAME")
+if not os.environ.get(project_id_env_name):
     print('> Thundra Project ID is not present. Exiting early...')
     print('> Instrumentation failed.')
     exit(0)
