@@ -36,8 +36,9 @@ jobs:
     - checkout
       # Use `thundra/maven` command
     - thundra/maven:
-        apikey: <THUNDRA_APIKEY>
-        project_id: <THUNDRA_PROJECT_ID>
+        # Use environment variable name and set the secret on CircleCI
+        apikey: THUNDRA_APIKEY
+        project_id: THUNDRA_PROJECT_ID
     - run:
         command: mvn clean verify
 workflows:
@@ -69,8 +70,9 @@ jobs:
       - checkout
       # Use `thundra/gradle` command
       - thundra/gradle:
-          apikey: <THUNDRA_APIKEY>
-          project_id: <THUNDRA_PROJECT_ID>
+          # Use environment variable name and set the secret on CircleCI
+          apikey: THUNDRA_APIKEY
+          project_id: THUNDRA_PROJECT_ID
       - run:
           # Make sure to use the $THUNDRA_GRADLE_INIT_SCRIPT_PATH
           command: ./gradlew build --init-script $THUNDRA_GRADLE_INIT_SCRIPT_PATH

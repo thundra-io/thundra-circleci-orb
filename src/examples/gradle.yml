@@ -12,10 +12,13 @@ usage:
         - checkout
         # Use `thundra/gradle` command
         - thundra/gradle:
-            apikey: <THUNDRA_APIKEY>
-            project_id: <THUNDRA_PROJECT_ID>
+            # Use environment variable name and set the secret on CircleCI
+            apikey: THUNDRA_APIKEY
+            project_id: THUNDRA_AGENT_TEST_PROJECT_ID
         - run:
             # Make sure to use the $THUNDRA_GRADLE_INIT_SCRIPT_PATH
+            # Use `$([[ -f $THUNDRA_GRADLE_INIT_SCRIPT_PATH ]] && echo "--init-script $THUNDRA_GRADLE_INIT_SCRIPT_PATH")`
+            # to check if the file exist first for fork builds.
             command: ./gradlew build --init-script $THUNDRA_GRADLE_INIT_SCRIPT_PATH
   workflows:
     example:
