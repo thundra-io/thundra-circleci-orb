@@ -12,6 +12,9 @@ The required parameters are the Thundra API Key and the Thundra Project ID, whic
 You can learn more about Thundra at [thundra.io](https://thundra.io)
 
 Once you get the Thundra API Key, make sure to set it as a secret. A sample Orb usage would look like this:
+### Prerequisites
+
+**Python 3** and it's shell at `/usr/bin/python3` should be available in the workflow. Improvements towards disgarding this requirement is in progress. If you're having issues in any case, please let us know by [opening an issue](https://github.com/thundra-io/thundra-circleci-orb/issues/new/choose).
 
 ### Maven Build Example
 
