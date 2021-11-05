@@ -1,5 +1,7 @@
 description: >
-  Use Maven command to integrate Thundra Foresight to your project and instrument your Maven build.
+  Use Maven command to integrate Thundra Foresight into your project and instrument your Maven build. With this command, you can monitor your unit, integration, and end-to-end tests in your Maven build with distributed tracing capabilities. Foresight is currently supporting JUnit and Selenium frameworks for Java runtime. However, making other frameworks such as TestNG available is in our roadmap.
+
+  Python shell is required to successfully run this command at the moment.
 usage:
   version: 2.1
   orbs:

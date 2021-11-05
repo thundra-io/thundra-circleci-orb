@@ -1,7 +1,9 @@
 version: 2.1
 
-description: >
-  Easily integrate Thundra Foresight to your CircleCI build and monitor your test runs.
+description: |
+  Thundra Foresight is a test monitoring tool that's powered by Thundra APM Agents that supports multiple runtimes, such as Java, NodeJS, and Python. This orb help you to monitor your unit, integration, and end-to-end tests with distributed tracing capabilities. It is currently supporting Java runtimes for your Maven and Gradle builds, for JUnit and Selenium frameworks. More runtime and test framework support are on the way to make it available for CircleCI users.
+
+  Python shell is also required to successfully run this orb at the moment.
 
 display:
   home_url: "https://thundra.io"
