@@ -1,4 +1,4 @@
-# thundra-circleci-plugin
+# thundra-circleci-orb
 
 A CircleCI Orb to instrument your projects with Thundra Foresight.
 
